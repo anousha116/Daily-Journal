@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Journaling Prompts</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f0f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: #333;
+        }
+
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+
+        h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+        }
+
+
+        h2 {
+            color: #ff4081;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+
+        .prompt {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+
+
+        .date {
+            font-size: 1em;
+            color: #999;
+            margin-top: 10px;
+        }
+
+
+        button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+
+        button:hover {
+            background-color: #d81b60;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <h1>Daily Journaling</h1>
+        <h2>Today's Prompt</h2>
+        <div class="date" id="date"></div>
+        <div class="prompt" id="prompt">Loading prompt...</div>
+        <button onclick="generatePrompt()">Get New Prompt</button>
+    </div>
+
+
+    <script>
+        // Array of prompts
+        const prompts = [
+            "What's one thing you're grateful for today?",
+            "What was one thing you really enjoyed doing today?",
+            "Tell me about your day—what stood out the most?",
+            "What made you smile today?",
+            "If you could relive one moment from today, what would it be?",
+            "What's something you learned today?",
+            "What’s something that challenged you today, and how did you overcome it?",
+            "What was the best part of your day and why?",
+            "Did you feel peaceful today? Why or why not?",
+            "If today was a color, what color would it be and why?"
+        ];
+
+
+        function generatePrompt() {
+            // Get the current date
+            const today = new Date();
+            const dateStr = today.toLocaleDateString();
+
+
+            // Set the date on the page
+            document.getElementById('date').innerText = `Date: ${dateStr}`;
+
+
+            // Randomly choose a prompt
+            const randomIndex = Math.floor(Math.random() * prompts.length);
+            document.getElementById('prompt').innerText = prompts[randomIndex];
+        }
+
+
+        // Initial prompt when the page loads
+        generatePrompt();
+    </script>
+
+
+</body>
+</html>
